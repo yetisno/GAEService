@@ -1,5 +1,9 @@
-target/
+target/                                                                         
 pom.xml.tag
 pom.xml.releaseBackup
 pom.xml.next
 release.properties
+/datanucleus.log
+appengine-web.xml
+nb-configuration.xml
+config.json
