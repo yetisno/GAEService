@@ -21,6 +21,8 @@ import java.io.OutputStream;
 import java.nio.ByteBuffer;
 import java.nio.channels.Channels;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.yetiz.gae.GAEServiceProvider;
 import org.yetiz.gae.exception.KVEntityNotFoundException;
 
@@ -49,7 +51,7 @@ public class GAEKVEntity extends KVEntity {
 	}
 
 	private static String getPrimaryKey(String userID, String key) {
-		return userID + "\n" + key;
+		return userID + "-[;]-" + key;
 	}
 
 	private boolean outOfValueLengthLimit() {
@@ -106,6 +108,7 @@ public class GAEKVEntity extends KVEntity {
 			GAEServiceProvider.GetDatastoreService().put(entity);
 			return true;
 		} catch (Exception e) {
+			Logger.getLogger(GAEKVEntity.class.getName()).log(Level.SEVERE, null, e);
 			return false;
 		}
 	}
@@ -115,7 +118,7 @@ public class GAEKVEntity extends KVEntity {
 			GAEServiceProvider.GetDatastoreService().delete(KeyFactory.createKey(KVEntity.class.getCanonicalName(), getPrimaryKey(userID, key)));
 			GcsServiceFactory.createGcsService(RetryParams.getDefaultInstance()).delete(new GcsFilename(AppIdentityServiceFactory.getAppIdentityService().getDefaultGcsBucketName(), getPrimaryKey(userID, key)));
 		} catch (Exception e) {
-			throw new KVEntityNotFoundException();
+//			throw new KVEntityNotFoundException();
 		}
 	}
 }

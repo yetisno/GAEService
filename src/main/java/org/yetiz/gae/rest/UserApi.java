@@ -5,21 +5,6 @@
  */
 package org.yetiz.gae.rest;
 
-import com.google.appengine.api.appidentity.AppIdentityServiceFactory;
-import com.google.appengine.tools.cloudstorage.GcsFileOptions;
-import com.google.appengine.tools.cloudstorage.GcsFilename;
-import com.google.appengine.tools.cloudstorage.GcsOutputChannel;
-import com.google.appengine.tools.cloudstorage.GcsService;
-import com.google.appengine.tools.cloudstorage.GcsServiceFactory;
-import com.google.appengine.tools.cloudstorage.RetryParams;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.ObjectOutputStream;
-import java.io.OutputStream;
-import java.nio.ByteBuffer;
-import java.nio.channels.Channels;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.inject.Singleton;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
