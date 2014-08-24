@@ -17,6 +17,7 @@ public abstract class KVEntity {
 	public static final String PARAM_NAME = "n";
 	public static final String PARAM_VALUE = "v";
 	public static final String PARAM_DATE = "t";
+	public static final String PARAM_LENGTH = "l";
 
 	protected String key;
 	protected String name;
@@ -48,4 +49,7 @@ public abstract class KVEntity {
 		return date;
 	}
 
+	public Long getLength() {
+		return new Long(value.length);
+	}
 }
