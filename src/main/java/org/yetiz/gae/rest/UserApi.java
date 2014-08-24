@@ -84,10 +84,8 @@ public class UserApi implements UserApiSkel {
 	@Override
 	public Response addUser(
 		@PathParam(User.PARAM_USERID) String userID,
-		@QueryParam(value = RESTfulApplication.PARAM_ADKEY)
-		final String adKey,
-		@QueryParam(value = User.PARAM_PASSPHRASE)
-		final String passphrase) {
+		@QueryParam(value = RESTfulApplication.PARAM_ADKEY) final String adKey,
+		@QueryParam(value = User.PARAM_PASSPHRASE) final String passphrase) {
 		try {
 			AdminServiceValidator.adKey(adKey);
 			try {
@@ -111,8 +109,7 @@ public class UserApi implements UserApiSkel {
 	@Path("/{" + User.PARAM_USERID + "}")
 	@Override
 	public Response deleteUser(
-		@QueryParam(value = RESTfulApplication.PARAM_ADKEY)
-		final String adKey,
+		@QueryParam(value = RESTfulApplication.PARAM_ADKEY) final String adKey,
 		@PathParam(User.PARAM_USERID) String userID) {
 		//require adk, ui
 		try {
